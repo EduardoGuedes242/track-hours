@@ -15,4 +15,12 @@ public class EmployeeService {
         return employeeRepository.findAll();
     }
 
+    public void createAndEditEmployee(EmployeeEntity employeeEntity) {
+        employeeRepository.save(employeeEntity);
+    }
+
+    public void deleteEmployee(EmployeeEntity employeeEntity) {
+        employeeRepository.save(employeeEntity);
+    }
+
 }

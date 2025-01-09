@@ -7,20 +7,22 @@ import java.util.Date;
 @Table(name = "employee")
 public class EmployeeEntity {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "epl_id", nullable = false)
+    @Column(name = "epl_id")
     private Integer id;
 
-    @Column(name = "epl_name", nullable = false)
+    @Column(name = "epl_name")
     private String name;
 
-    @Column(name = "epl_document", nullable = false)
+    @Column(name = "epl_document")
     private String document;
 
-    @Column(name = "epl_date_of_birth", nullable = false)
+    @Column(name = "epl_date_of_birth")
     private Date dateOfBirth;
+
+    @Column(name = "epl_password")
+    private String password;
 
     public Integer getId() {
         return id;
@@ -52,5 +54,13 @@ public class EmployeeEntity {
 
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

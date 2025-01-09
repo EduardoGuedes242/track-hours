@@ -1,9 +1,7 @@
 package com.eduardoguedes.trackhours.employee;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,7 +13,12 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @GetMapping
-    public List<EmployeeEntity> getAllEmployees() {
+    public List<EmployeeEntity> listAllEmployees() {
         return employeeService.listAllEmployees();
+    }
+
+    @PostMapping
+    public void createAndEditEmployee(@RequestBody EmployeeEntity employeeEntity) {
+        employeeService.createAndEditEmployee(employeeEntity);
     }
 }
