@@ -18,4 +18,6 @@ public class TimeEntryService {
     public List<TimeEntryEntity> getAllTimeEntry() {
        return timeEntryRepository.findAll();
     }
+
+
 }
