@@ -21,4 +21,9 @@ public class EmployeeController {
     public void createAndEditEmployee(@RequestBody EmployeeEntity employeeEntity) {
         employeeService.createAndEditEmployee(employeeEntity);
     }
+
+    @DeleteMapping("/{eplId}")
+    public void deleteEmployee(@PathVariable int eplId) {
+        employeeService.deleteEmployee(eplId);
+    }
 }

@@ -19,8 +19,8 @@ public class EmployeeService {
         employeeRepository.save(employeeEntity);
     }
 
-    public void deleteEmployee(EmployeeEntity employeeEntity) {
-        employeeRepository.save(employeeEntity);
+    public void deleteEmployee(int eplId) {
+        employeeRepository.deleteById(eplId);
     }
 
 }

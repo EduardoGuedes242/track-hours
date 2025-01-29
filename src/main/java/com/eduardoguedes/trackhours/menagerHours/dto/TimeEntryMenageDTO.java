@@ -1,40 +1,23 @@
 package com.eduardoguedes.trackhours.menagerHours.dto;
 
-import jakarta.persistence.Column;
-
-public class MenageHoursMainDTO {
-
-    private Integer eplId;
-
-    private String eplName;
-
+public class TimeEntryMenageDTO  {
     private String tmeDate;
-
     private String timeEntry1;
-
     private String timeEntry2;
-
     private String timeEntry3;
-
     private String timeEntry4;
-
     private String totalHours;
 
-    public Integer getEplId() {
-        return eplId;
+    public TimeEntryMenageDTO(String tmeDate, String timeEntry1, String timeEntry2, String timeEntry3, String timeEntry4, String totalHours) {
+        this.tmeDate = tmeDate;
+        this.timeEntry1 = timeEntry1;
+        this.timeEntry2 = timeEntry2;
+        this.timeEntry3 = timeEntry3;
+        this.timeEntry4 = timeEntry4;
+        this.totalHours = totalHours;
     }
 
-    public void setEplId(Integer eplId) {
-        this.eplId = eplId;
-    }
-
-    public String getEplName() {
-        return eplName;
-    }
-
-    public void setEplName(String eplName) {
-        this.eplName = eplName;
-    }
+    public TimeEntryMenageDTO() {}
 
     public String getTmeDate() {
         return tmeDate;

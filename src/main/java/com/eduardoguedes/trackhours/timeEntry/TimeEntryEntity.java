@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.sql.Time;
 import java.util.Date;
 
 @Table(name = "time_entry")
@@ -18,8 +19,11 @@ public class TimeEntryEntity {
     @Column(name = "epl_id")
     private Integer employeeId;
 
-    @Column(name = "tme_timestamp")
-    private Date dateTimestemp;
+    @Column(name = "tme_date")
+    private Date date;
+
+    @Column(name = "tme_time")
+    private Time time;
 
     @Column(name = "tme_observation")
     private String observation;
@@ -40,12 +44,20 @@ public class TimeEntryEntity {
         this.employeeId = employeeId;
     }
 
-    public Date getDateTimestemp() {
-        return dateTimestemp;
+    public Date getDate() {
+        return date;
     }
 
-    public void setDateTimestemp(Date dateTimestemp) {
-        this.dateTimestemp = dateTimestemp;
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Time getTime() {
+        return time;
+    }
+
+    public void setTime(Time time) {
+        this.time = time;
     }
 
     public String getObservation() {
