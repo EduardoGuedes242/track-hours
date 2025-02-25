@@ -1,4 +1,4 @@
-package com.eduardoguedes.trackhours.infra.config;
+package com.eduardoguedes.trackhours.infra.security;
 
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;

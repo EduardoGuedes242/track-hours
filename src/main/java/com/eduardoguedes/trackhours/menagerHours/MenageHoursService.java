@@ -1,5 +1,6 @@
 package com.eduardoguedes.trackhours.menagerHours;
 
+import com.eduardoguedes.trackhours.infra.security.JwtTokenUtil;
 import com.eduardoguedes.trackhours.menagerHours.dto.EmployeeMenageDTO;
 import com.eduardoguedes.trackhours.menagerHours.dto.MenageHoursMainDTO;
 import com.eduardoguedes.trackhours.menagerHours.dto.TimeEntryMenageDTO;
@@ -17,6 +18,9 @@ import java.util.Map;
 public class MenageHoursService {
 
     @Autowired
+    private JwtTokenUtil jwtTokenUtil;
+
+    @Autowired
     private JdbcTemplate jdbcTemplate;
 
     public List<EmployeeMenageDTO> getTimeEntryReport() {
@@ -30,6 +34,7 @@ public class MenageHoursService {
                 "   FROM " +
                 "       public.time_entry " +
                 "   JOIN employee on (time_entry.epl_id = employee.epl_id) " +
+                " WHERE employee.tnt_id = " + jwtTokenUtil.getTenantIdFromToken() +
                 ") " +
                 "SELECT " +
                 "   epl_id, " +
@@ -46,7 +51,7 @@ public class MenageHoursService {
                 "       )), " +
                 "       'HH24:MI' " +
                 "   ) AS totalHours " +
-                "FROM " +
+                " FROM " +
                 "   cte_marcacoes " +
                 " GROUP BY " +
                 "   cte_marcacoes.epl_id, epl_name, tme_date " +

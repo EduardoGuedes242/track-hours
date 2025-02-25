@@ -1,4 +1,4 @@
-package com.eduardoguedes.trackhours.infra.config;
+package com.eduardoguedes.trackhours.infra.security;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -19,7 +19,7 @@ public class JwtService {
     this.encoder = encoder;
   }
 
-  public String generateToken(Authentication authentication) {
+  public String generateToken(Authentication authentication, Integer tenantId) {
     Instant now = Instant.now();
     long expired = 3600L;
 
@@ -33,6 +33,7 @@ public class JwtService {
             .expiresAt(now.plusSeconds(expired))
             .subject(authentication.getName())
             .claim("scope", scope)
+            .claim("tenantId", tenantId)
             .build();
 
     return encoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();

@@ -12,6 +12,9 @@ public class EmployeeEntity {
     @Column(name = "epl_id")
     private Integer id;
 
+    @Column(name = "tnt_id")
+    private Integer tenantId;
+
     @Column(name = "epl_name")
     private String name;
 
@@ -24,12 +27,32 @@ public class EmployeeEntity {
     @Column(name = "epl_password")
     private String password;
 
+    public EmployeeEntity() {
+    }
+
+    public EmployeeEntity(Integer id, Integer tenantId, String name, String document, Date dateOfBirth, String password) {
+        this.id = id;
+        this.tenantId = tenantId;
+        this.name = name;
+        this.document = document;
+        this.dateOfBirth = dateOfBirth;
+        this.password = password;
+    }
+
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getTenantId() {
+        return tenantId;
+    }
+
+    public void setTenantId(Integer tenantId) {
+        this.tenantId = tenantId;
     }
 
     public String getName() {

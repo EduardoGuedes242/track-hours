@@ -1,6 +1,6 @@
 package com.eduardoguedes.trackhours.Auth.user;
 
-import com.eduardoguedes.trackhours.infra.config.JwtService;
+import com.eduardoguedes.trackhours.infra.security.JwtService;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ public class AuthenticationService {
     this.jwtService = jwtService;
   }
 
-  public String authenticate(Authentication authentication) {
-    return jwtService.generateToken(authentication);
+  public String authenticate(Authentication authentication, Integer tenantId) {
+    return jwtService.generateToken(authentication, tenantId);
   }
 }
