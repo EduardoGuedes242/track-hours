@@ -38,11 +38,12 @@ public class SecurityConfig {
   SecurityFilterChain basicAuthSecurityFilterChain(HttpSecurity http) throws Exception {
     http
             .securityMatcher("/auth/user") // Aplica apenas à rota /auth/user
+            .cors(Customizer.withDefaults()) // Ativa CORS
             .authorizeHttpRequests(auth -> auth
-                    .anyRequest().authenticated() // Exige autenticação
+                    .anyRequest().authenticated()
             )
-            .httpBasic(Customizer.withDefaults()) // Habilita Basic Auth
-            .csrf(csrf -> csrf.disable()); // Desabilita CSRF (opcional)
+            .httpBasic(Customizer.withDefaults())
+            .csrf(csrf -> csrf.disable());
 
     return http.build();
   }
@@ -51,11 +52,13 @@ public class SecurityConfig {
   SecurityFilterChain jwtSecurityFilterChain(HttpSecurity http) throws Exception {
     http
             .securityMatcher("/**") // Aplica a todas as rotas
+            .cors(Customizer.withDefaults()) // Ativa CORS
             .authorizeHttpRequests(auth -> auth
-                    .anyRequest().authenticated() // Exige autenticação
+                    .anyRequest().authenticated()
             )
             .oauth2ResourceServer(oauth2 -> oauth2
-                    .jwt(jwt -> jwt.decoder(jwtDecoder()))); // Desabilita CSRF (opcional)
+                    .jwt(jwt -> jwt.decoder(jwtDecoder())))
+            .csrf(csrf -> csrf.disable());
 
     return http.build();
   }
