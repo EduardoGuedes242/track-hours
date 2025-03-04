@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmployeeService {
@@ -18,6 +19,11 @@ public class EmployeeService {
     public List<EmployeeEntity> listAllEmployees(){
         System.out.println(jwtTokenUtil.getTenantIdFromToken());
         return employeeRepository.findByTenantId(jwtTokenUtil.getTenantIdFromToken());
+    }
+
+    public Optional<EmployeeEntity> employee(Integer id){
+        System.out.println(jwtTokenUtil.getTenantIdFromToken());
+        return employeeRepository.findById(id);
     }
 
     public void createAndEditEmployee(EmployeeEntity employeeEntity) {

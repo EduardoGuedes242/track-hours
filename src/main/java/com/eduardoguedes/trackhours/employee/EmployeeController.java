@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/employee")
@@ -30,4 +31,12 @@ public class EmployeeController {
     public void deleteEmployee(@PathVariable int eplId) {
         employeeService.deleteEmployee(eplId);
     }
+
+    @GetMapping("/{eplId}")
+    public Optional<EmployeeEntity> employee(@PathVariable int eplId) {
+        return employeeService.employee(eplId);
+    }
+
+
+
 }

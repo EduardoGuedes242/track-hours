@@ -14,7 +14,7 @@ public class GlobalCorsConfig {
   @Bean
   public CorsConfigurationSource corsConfigurationSource() {
     CorsConfiguration configuration = new CorsConfiguration();
-    configuration.setAllowedOrigins(Arrays.asList("*", "**")); // Frontend permitido
+    configuration.setAllowedOrigins(Arrays.asList("http://localhost:55592")); // Frontend permitido
     configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
     configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
     configuration.setAllowCredentials(true); // Permite cookies/autenticação

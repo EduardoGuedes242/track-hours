@@ -27,6 +27,9 @@ public class EmployeeEntity {
     @Column(name = "epl_password")
     private String password;
 
+    @Column(name = "epl_active")
+    private Boolean active;
+
     public EmployeeEntity() {
     }
 
@@ -85,5 +88,13 @@ public class EmployeeEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }
